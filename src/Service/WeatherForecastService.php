@@ -29,7 +29,7 @@ class WeatherForecastService
 
     public function weatherForecast()
     {
-        $apiKey = $this->containerBag->get('app.weather_api_key');
+        $apiKey = $_ENV['WEATHER_API_KEY'];
         $city = $this->locationByIp->getLocation();
         $apiCall = "https://api.openweathermap.org/data/2.5/weather?q=$city&units=metric&appid=$apiKey";
         return $this->client->request('GET', $apiCall)->getContent();

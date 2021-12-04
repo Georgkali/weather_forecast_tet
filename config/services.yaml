@@ -3,9 +3,6 @@
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
-parameters:
-    app.location_api_key: '7cdd5c912853213038180e6765e3edc1'
-    app.weather_api_key: '75644221927cf43372e9901b8ab3fce1'
 
 services:
     # default configuration for services in *this* file

@@ -40,7 +40,7 @@ class LocationByIpService
     public function getLocation()
     {
         $cache = new DoctrineDbalAdapter($_ENV['DATABASE_URL']);
-        $apiKey = $this->containerBag->get('app.location_api_key');
+        $apiKey = $_ENV['LOCATION_API_KEY'];
         $ip = $this->userIp->getIp();
         $ApiCall = "http://api.ipstack.com/$ip?access_key=$apiKey";
         return $cache->get('city_'.$ip, function () use ($ApiCall){
