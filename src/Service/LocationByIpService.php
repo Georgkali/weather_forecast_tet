@@ -3,8 +3,6 @@
 namespace App\Service;
 
 use Symfony\Component\Cache\Adapter\DoctrineDbalAdapter;
-use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
-use Symfony\Contracts\Cache\CacheInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class LocationByIpService
@@ -17,21 +15,12 @@ class LocationByIpService
      * @var UserIpService
      */
     private $userIp;
-    /**
-     * @var ContainerBagInterface
-     */
-    private $containerBag;
-    /**
-     * @var CacheInterface
-     */
-    private $cache;
 
-    public function __construct(HttpClientInterface $client, UserIpService $userIp, ContainerBagInterface $containerBag, CacheInterface $cache)
+    public function __construct(HttpClientInterface $client, UserIpService $userIp)
     {
         $this->client = $client;
         $this->userIp = $userIp;
-        $this->containerBag = $containerBag;
-        $this->cache = $cache;
+
     }
 
     /**
